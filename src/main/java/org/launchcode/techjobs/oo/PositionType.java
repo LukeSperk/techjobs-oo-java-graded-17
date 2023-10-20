@@ -47,9 +47,12 @@ public class PositionType {
     }
 
     public String getValue() {
-        return value;
+        if (value == null || value == "") {
+            return "Data not available";
+        } else {
+            return value;
+        }
     }
-
     public void setValue(String value) {
         this.value = value;
     }

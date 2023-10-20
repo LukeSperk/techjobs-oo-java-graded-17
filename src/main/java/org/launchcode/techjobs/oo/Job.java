@@ -2,6 +2,8 @@ package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
 
+import static org.junit.Assert.assertEquals;
+
 public class Job {
 
     private int id;
@@ -45,8 +47,18 @@ public class Job {
         return Objects.hash(id);
     }
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
+    @Override
+    public String toString() {
+        String nL = System.lineSeparator();
+        String nD = "Data not available";
+        String s = nL + "ID: " + this.getId() + nL
+                + "Name: " + ((this.getName() == null || this.getName() == "") ? nD : this.getName()) + nL
+                + "Employer: " + ((this.getEmployer() == null) ? nD : this.getEmployer().getValue()) + nL
+                + "Location: " + ((this.getLocation() == null) ? nD : this.getLocation().getValue()) + nL
+                + "Position Type: " + ((this.getPositionType() == null) ? nD : this.getPositionType().getValue()) + nL
+                + "Core Competency: " + ((this.getCoreCompetency() == null) ? nD : this.getCoreCompetency().getValue()) + nL;
+        return s;
+    }
 
     public String getName() {
         return name;
